@@ -43,7 +43,7 @@ int dzienMiesiacRok() {
     }
     if (miesiac == 1 || miesiac == 3 || miesiac == 5 || miesiac == 7 || miesiac == 8 || miesiac == 10 ||
         miesiac == 12) {
-        if (0 <= dzien && dzien <= 31) {
+        if (0 < dzien && dzien <= 31) {
             printf("Data jest poprawna.");
             return 0;
         } else {
@@ -52,7 +52,7 @@ int dzienMiesiacRok() {
         }
     }
     else if (miesiac != 2) {
-        if (0 <= dzien && dzien <= 30) {
+        if (0 < dzien && dzien <= 30) {
             printf("Data jest poprawna.\n");
             return 0;
         } else {
@@ -61,28 +61,28 @@ int dzienMiesiacRok() {
         }
     }
     else {
-            bool przestepny;
-            if (rok % 4 != 0 and rok % 400 != 0) przestepny = false;
-            else przestepny = true;
-            if (przestepny) {
-                if (0 <= dzien && dzien <= 29) {
-                    printf("Data jest poprawna.\n");
-                    return 0;
-                } else {
-                    printf("Data jest niepoprawna.\n");
-                    return -1;
-                }
+        bool przestepny;
+        if (rok % 4 != 0 or ( rok % 100 == 0 and rok % 400 != 0)) przestepny = false;
+        else przestepny = true;
+        if (przestepny) {
+            if (0 < dzien && dzien <= 29) {
+                printf("Data jest poprawna.\n");
+                return 0;
             } else {
-                if (0 <= dzien && dzien <= 28) {
-                    printf("Data jest poprawna.\n");
-                    return 0;
-                } else {
-                    printf("Data jest niepoprawna.\n");
-                    return -1;
-                }
+                printf("Data jest niepoprawna.\n");
+                return -1;
+            }
+        } else {
+            if (0 < dzien && dzien <= 28) {
+                printf("Data jest poprawna.\n");
+                return 0;
+            } else {
+                printf("Data jest niepoprawna.\n");
+                return -1;
             }
         }
     }
+}
 
 int trojkaty ()
 {
